@@ -1,0 +1,2 @@
+alias ll='ls -la'
+alias hello='echo "Dotfiles installed successfully! The environment is working."'
