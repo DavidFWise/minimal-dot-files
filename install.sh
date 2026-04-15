@@ -6,8 +6,7 @@ echo "Starting modern dotfiles installation..."
 
 # 1. Install core apt packages (sudo is passwordless for our 'dev' user)
 sudo apt-get update
-sudo apt-get install -y zsh curl git fzf ripgrep bat fd-find
-
+sudo apt-get install -y zsh curl git fzf ripgrep bat fd-find unzip wget
 # 2. Install modern Rust-based tools
 # Install Starship prompt
 curl -sS https://starship.rs/install.sh | sh -s -- -y
