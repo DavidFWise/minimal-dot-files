@@ -13,10 +13,12 @@ curl -sS https://starship.rs/install.sh | sh -s -- -y
 # Install Zoxide (smart cd)
 curl -sSfL https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | sh
 # Install Eza (modern ls)
-sudo mkdir -p /etc/apt/keyrings
-wget -qO- https://raw.githubusercontent.com/eza-community/eza/main/deb.asc | sudo gpg --dearmor -o /etc/apt/keyrings/gierens.gpg
-echo "deb [signed-by=/etc/apt/keyrings/gierens.gpg] http://apt.fury.io/eza/ /" | sudo tee /etc/apt/sources.list.d/gierens.list
-sudo apt-get update && sudo apt-get install -y eza
+# Install Eza (modern ls)
+echo "Installing Eza..."
+wget -qO eza.tar.gz https://github.com/eza-community/eza/releases/latest/download/eza_aarch64-unknown-linux-musl.tar.gz
+tar -xzf eza.tar.gz
+sudo mv eza /usr/local/bin/
+rm eza.tar.gz
 # --- Install Bleeding Edge Rust Tools (ARM64 Native) ---
 # --- Install Modern Git Tools (ARM64 Native) ---
 
