@@ -30,11 +30,12 @@ rm gitui.tar.gz
 # 4. Install Git Delta (Rust Syntax-Highlighting Pager)
 echo "Installing Git Delta..."
 DELTA_VER=$(curl -s https://api.github.com/repos/dandavison/delta/releases/latest | grep -oP '"tag_name": "\K(.*)(?=")')
-wget -qO delta.tar.gz "https://github.com/dandavison/delta/releases/download/${DELTA_VER}/delta-${DELTA_VER}-aarch64-unknown-linux-musl.tar.gz"
+wget -qO delta.tar.gz "https://github.com/dandavison/delta/releases/download/${DELTA_VER}/delta-${DELTA_VER}-aarch64-unknown-linux-gnu.tar.gz"
 tar -xzf delta.tar.gz
-sudo mv "delta-${DELTA_VER}-aarch64-unknown-linux-musl/delta" /usr/local/bin/
-rm -rf delta.tar.gz "delta-${DELTA_VER}-aarch64-unknown-linux-musl"# 3. Install GitHub CLI
+sudo mv "delta-${DELTA_VER}-aarch64-unknown-linux-gnu/delta" /usr/local/bin/
+rm -rf delta.tar.gz "delta-${DELTA_VER}-aarch64-unknown-linux-gnu"
 
+# 3. Install GitHub CLI
 echo "Installing GitHub CLI..."
 curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg &&
   sudo chmod go+r /usr/share/keyrings/githubcli-archive-keyring.gpg &&
