@@ -61,7 +61,8 @@ echo "Installing Ouch..."
 wget -qO ouch.tar.gz https://github.com/ouch-org/ouch/releases/latest/download/ouch-aarch64-unknown-linux-musl.tar.gz
 tar -xzf ouch.tar.gz
 sudo mv ouch-aarch64-unknown-linux-musl/ouch /usr/local/bin/
-rm -rf ouch.tar.gz ouch-aarch64-unknown-linux-musl# 3. Install Zsh Plugins (Auto-suggestions & Syntax Highlighting)
+rm -rf ouch.tar.gz ouch-aarch64-unknown-linux-musl
+# 3. Install Zsh Plugins (Auto-suggestions & Syntax Highlighting)
 mkdir -p ~/.zsh
 if [ ! -d "$HOME/.zsh/zsh-autosuggestions" ]; then
   git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
