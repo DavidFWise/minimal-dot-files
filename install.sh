@@ -27,16 +27,14 @@ tar -xzf gitui.tar.gz
 sudo mv gitui /usr/local/bin/
 rm gitui.tar.gz
 
-# 2. Install Git Delta (Rust Syntax-Highlighting Pager)
+# 4. Install Git Delta (Rust Syntax-Highlighting Pager)
 echo "Installing Git Delta..."
-# Delta requires the version number in the download URL, so we fetch it dynamically
 DELTA_VER=$(curl -s https://api.github.com/repos/dandavison/delta/releases/latest | grep -oP '"tag_name": "\K(.*)(?=")')
-wget -qO delta.tar.gz "https://github.com/dandavison/delta/releases/download/${DELTA_VER}/delta-${DELTA_VER}-aarch64-unknown-linux-gnu.tar.gz"
+wget -qO delta.tar.gz "https://github.com/dandavison/delta/releases/download/${DELTA_VER}/delta-${DELTA_VER}-aarch64-unknown-linux-musl.tar.gz"
 tar -xzf delta.tar.gz
-sudo mv "delta-${DELTA_VER}-aarch64-unknown-linux-gnu/delta" /usr/local/bin/
-rm -rf delta.tar.gz "delta-${DELTA_VER}-aarch64-unknown-linux-gnu"
+sudo mv "delta-${DELTA_VER}-aarch64-unknown-linux-musl/delta" /usr/local/bin/
+rm -rf delta.tar.gz "delta-${DELTA_VER}-aarch64-unknown-linux-musl"# 3. Install GitHub CLI
 
-# 3. Install GitHub CLI
 echo "Installing GitHub CLI..."
 curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg &&
   sudo chmod go+r /usr/share/keyrings/githubcli-archive-keyring.gpg &&
@@ -45,25 +43,24 @@ curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo 
   sudo apt install gh -y
 # 1. Install Yazi (Async File Manager)
 echo "Installing Yazi..."
-wget -qO yazi.zip https://github.com/sxyazi/yazi/releases/latest/download/yazi-aarch64-unknown-linux-gnu.zip
+wget -qO yazi.zip https://github.com/sxyazi/yazi/releases/latest/download/yazi-aarch64-unknown-linux-musl.zip
 unzip -q yazi.zip
-sudo mv yazi-aarch64-unknown-linux-gnu/yazi yazi-aarch64-unknown-linux-gnu/ya /usr/local/bin/
-rm -rf yazi.zip yazi-aarch64-unknown-linux-gnu
+sudo mv yazi-aarch64-unknown-linux-musl/yazi yazi-aarch64-unknown-linux-musl/ya /usr/local/bin/
+rm -rf yazi.zip yazi-aarch64-unknown-linux-musl
 
 # 2. Install Atuin (Magical Shell History)
 echo "Installing Atuin..."
-wget -qO atuin.tar.gz https://github.com/atuinsh/atuin/releases/latest/download/atuin-aarch64-unknown-linux-gnu.tar.gz
+wget -qO atuin.tar.gz https://github.com/atuinsh/atuin/releases/latest/download/atuin-aarch64-unknown-linux-musl.tar.gz
 tar -xzf atuin.tar.gz
-sudo mv atuin-aarch64-unknown-linux-gnu/atuin /usr/local/bin/
-rm -rf atuin.tar.gz atuin-aarch64-unknown-linux-gnu
+sudo mv atuin-aarch64-unknown-linux-musl/atuin /usr/local/bin/
+rm -rf atuin.tar.gz atuin-aarch64-unknown-linux-musl
 
 # 3. Install Ouch (Painless Compression)
 echo "Installing Ouch..."
-wget -qO ouch.tar.gz https://github.com/ouch-org/ouch/releases/latest/download/ouch-aarch64-unknown-linux-gnu.tar.gz
+wget -qO ouch.tar.gz https://github.com/ouch-org/ouch/releases/latest/download/ouch-aarch64-unknown-linux-musl.tar.gz
 tar -xzf ouch.tar.gz
-sudo mv ouch-aarch64-unknown-linux-gnu/ouch /usr/local/bin/
-rm -rf ouch.tar.gz ouch-aarch64-unknown-linux-gnu
-# 3. Install Zsh Plugins (Auto-suggestions & Syntax Highlighting)
+sudo mv ouch-aarch64-unknown-linux-musl/ouch /usr/local/bin/
+rm -rf ouch.tar.gz ouch-aarch64-unknown-linux-musl# 3. Install Zsh Plugins (Auto-suggestions & Syntax Highlighting)
 mkdir -p ~/.zsh
 if [ ! -d "$HOME/.zsh/zsh-autosuggestions" ]; then
   git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
