@@ -15,8 +15,9 @@ curl -sSfL https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh 
 # Install Eza (modern ls)
 # Install Eza (modern ls)
 echo "Installing Eza..."
-wget -qO eza.tar.gz https://github.com/eza-community/eza/releases/latest/download/eza_aarch64-unknown-linux-musl.tar.gz
+wget -qO eza.tar.gz https://github.com/eza-community/eza/releases/latest/download/eza_aarch64-unknown-linux-gnu.tar.gz
 tar -xzf eza.tar.gz
+sudo chmod +x eza
 sudo mv eza /usr/local/bin/
 rm eza.tar.gz
 # --- Install Bleeding Edge Rust Tools (ARM64 Native) ---
